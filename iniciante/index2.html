@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        //Iniciante
+        //Regras dos exercícios
+
+        //Utilize um arquivo HTML e uma tag script para resolver esse exercício.
+        //Faça do seu jeito, mas lembre-se não esqueça que o objetivo é manipular o DOM, sendo assim, faça seu melhor para fazer todas as operações com a árvore (adição 
+        //remoção, busca, etc.)
+
+        //Faça um programa que “pegue” uma lista <ol> no HTML e coloque negrito dinâmicamente a partir de um nome digitado no seu input. Por exemplo
+            /*A sua tela possui uma lista de nomes:
+
+            João
+            Claudio
+            Marcio
+
+            Usando um input você digita “Jo”, então o programa no mesmo momento deverá devolver o seguinte resultado:
+
+            *João*
+            Claudio
+            Marcio*/
+        
+    </script>
+    <style>
+        .ativo{
+            font-weight: bold;
+        }
+    </style>
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <input id="nome" placeholder="Digite um nome" onkeypress="destacar()" />
+    <ol class="listaDeNomes">
+      <li>João</li>
+      <li>Márcio</li>
+      <li>Fabiana</li>
+      <li>Jorge</li>
+      <li>Silvana</li>
+      <li>Luiz</li>
+      <li>Carlos</li>
+      <li>Pablo</li>
+    </ol>
+    
+    <script>
+        const listaDeNomes = document.querySelectorAll('.listaDeNomes li');
+        const nomes = listaDeNomes;
+
+
+        function destacar(){
+            const nome = document.querySelector('#nome');
+            for(i = 0; i < listaDeNomes.length; i++){
+                if(listaDeNomes[i].classList.contains('ativo')){
+                    listaDeNomes[i].classList.remove('ativo');
+                }
+                if(listaDeNomes[i].innerHTML == nome.value){
+                    listaDeNomes[i].classList.add('ativo');
+                }
+            }
+        }
+
+        console.log(listaDeNomes[1].innerHTML)
+    </script>
+</body>
+</html>

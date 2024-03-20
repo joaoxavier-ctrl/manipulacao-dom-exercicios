@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercicios para iniciante 1</title>
 </head>
 <body>
-    
+    <div class="numero"></div>
+    <div class="resultado"></div>
+
+    <script>
+        //Iniciante
+        //Regras dos exercícios
+
+        //Utilize um arquivo HTML e uma tag script para resolver esse exercício.
+        //Faça do seu jeito, mas lembre-se não esqueça que o objetivo é manipular o DOM, sendo assim, faça seu melhor para fazer todas as operações com a árvore (adição 
+        //remoção, busca, etc.)
+
+        //Exercício 1 – Faça um programa que capture o evento de um input na sua tela e mostre automaticamente a tabuada desse número abaixo.
+        const x = prompt("Digite um numero:");
+        const numeroDiv = document.querySelector('.numero');
+        const resultadoDiv = document.querySelector('.resultado');
+        const nodeX = document.createTextNode(x);
+        numeroDiv.appendChild(nodeX);
+
+        console.log("numero digitado: " + x);
+
+        for(i = 0; i < 11; i++){
+            const resultado = x * i;
+            const resultadoString = `${x} x ${i} = ${resultado}\n`;
+            console.log(`${x} x  ${i} = ${resultado}`);
+            const nodeResultado = document.createTextNode(resultadoString);
+            resultadoDiv.appendChild(nodeResultado);
+        }
+    </script>
 </body>
 </html>
