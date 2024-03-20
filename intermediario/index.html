@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        /*
+        Exercício 1 – No exemplo abaixo temos uma tabela simples em HTML que representa um calendário:
+
+        Faça um programa que:
+
+        a) colete do usuário duas datas (usando inputs de data) e altere a cor do “quadrado” dessa data no calendário dinamicamente. Por exemplo, se o usuário escolher a data 01/10/2022 – o quadrado da com o dia 1 (quarta-feira) deve mudar de cor.
+
+        b) colete do usuário duas datas (usando inputs de data), a seguir faça: 1) calcule quantos dias existem entre elas e exiba na tela (por exemplo, entre 05/04/2022 – 10/04/2022 → 5 dias); 2) mude a cor dos dias entre as datas selecionadas para a cor azul e as datas selecionadas para a cor laranja.
+        */
+    </script>
+    <style>
+        .calendar th, td{
+        border: solid 1px black;
+        width:40px;
+        height: 30px;
+        }
+        .calendar{
+        text-align:center;
+        }
+        .ativo{
+            background: red;
+        }
+        .ativo2{
+            background: blue;
+            color: white;
+        }
+    </style>
+    <title>Exercicio 1 intermediario</title>
+</head>
+<body>
+    <table class="calendar">
+        <thead>
+            <tr>
+                <th>Dom</th>
+                <th>Seg</th>
+                <th>Ter</th>
+                <th>Qua</th>
+                <th>Qui</th>
+                <th>Sex</th>
+                <th>Sab</th>
+                <th>Dom</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <input id="data" type="date" onkeypress="destacar()">
+    <input id="data1" type="date" onkeypress="destacar1()">
+    <input id="data2" type="date" onkeypress="destacar2()">
+    <div id="resultado"></div>
+    <script>
+        //script a
+        /*
+        const dataSelecionada = document.querySelector('input#data');
+        const data = document.querySelectorAll('td');
+
+        function destacar(){
+            const dataString = dataSelecionada.value;
+            const [ano, mes, dia] = dataString.split('-');
+            for(i = 0; i < data.length; i++){
+                if(data[i].innerHTML == dia){
+                    data[i].classList.add('ativo');
+                }
+            }
+        }*/
+
+        //script b
+        const dataSelecionada1 = document.querySelector('input#data1');
+        const dataSelecionada2 = document.querySelector('input#data2');
+        const data = document.querySelectorAll('td');
+        const resultado = document.querySelector('#resultado');
+
+        function destacar1(){
+            const dataString = dataSelecionada1.value;
+            const [ano, mes, dia] = dataString.split('-');
+            for(i = 0; i < data.length; i++){
+                if(data[i].innerHTML == dia){
+                    data[i].classList.add('ativo');
+                    return data1 = data[i].innerText;
+                }
+            }
+        }
+
+        function destacar2(){
+            const dataString = dataSelecionada2.value;
+            const [ano, mes, dia] = dataString.split('-');
+            for(i = 0; i < data.length; i++){
+                if(data[i].innerHTML == dia){
+                    data[i].classList.add('ativo2');
+                    return data2 = data[i].innerText;
+                }
+            }
+        }
+
+        resultado.innerHTML = Number(data2) - Number(data1);
+    </script>
+</body>
+</html>
